@@ -17,6 +17,20 @@ public class Country {
         return name;
     }
 
+    public String checkCharValue(String letter) {
+        int intLetter = (int) letter.toUpperCase().charAt(0);
+        int intUnicode = (int) name.charAt(0);
+        if (intLetter >= intUnicode) {
+            return name;
+        } else {
+            return "NO";
+        }
+//        if (intUnicode >= (int) e) {
+//            return intUnicode;
+//        }
+//        return intUnicode;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
