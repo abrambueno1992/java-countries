@@ -31,7 +31,11 @@ public class CountryAgeController {
                 maxAgeCountry = e;
             }
         }
-        return maxAgeCountry;
+                JavacountriesApplication.ourCountryList.countryList.sort((e1, e2) -> e1.getAge() - e2.getAge());
+
+        double medianIndex = ((double) JavacountriesApplication.ourCountryList.countryList.size() + 1) / 2;
+        return JavacountriesApplication.ourCountryList.countryList.get((int) medianIndex);
+
     }
 
 
@@ -45,6 +49,9 @@ public class CountryAgeController {
                 minAgeCountry = e;
             }
         }
-        return minAgeCountry;
+        JavacountriesApplication.ourCountryList.countryList.sort((e1, e2) -> e2.getAge() - e1.getAge());
+        double medianIndex = ((double) JavacountriesApplication.ourCountryList.countryList.size() + 1) / 2;
+        return JavacountriesApplication.ourCountryList.countryList.get((int) medianIndex);
+//        return minAgeCountry;
     }
 }
