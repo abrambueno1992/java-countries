@@ -19,13 +19,14 @@ public class CountryController {
     @RequestMapping("/begin") // begin?letter=
     public ArrayList<Country> getCountryDetail(@RequestParam(value = "letter") String letter) {
         ArrayList<Country> newList = new ArrayList<Country>();
-//                JavacountriesApplication.ourCountryList.countryList.sort((e1, e2) -> e1.getName().compareToIgnoreCase(e2.getName()));
-//        return JavacountriesApplication.ourCountryList.countryList;
-        newList.add(JavacountriesApplication.ourCountryList.finalCountry(e -> ((e.checkCharValue(letter) != "NO")) ));
+        for (Country e: JavacountriesApplication.ourCountryList.countryList) {
+            if (e.checkCharValue(letter) != "NO") {
+                System.out.println("TRUE, value:" + e.checkCharValue(letter));
+                newList.add(e);
+            }
+        }
         newList.sort((e1, e2) -> e1.getName().compareToIgnoreCase(e2.getName()));
         return newList;
-//        return JavacountriesApplication.ourCountryList.countryList;
-//        return JavacountriesApplication.ourCountryList.finalCountry(e -> (e.checkCharValue() >=( (int) letter)));
     }
 
     @RequestMapping("/size")
