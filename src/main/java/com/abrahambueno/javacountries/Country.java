@@ -20,7 +20,6 @@ public class Country {
     public String checkCharValue(String letter) {
         int intLetter = (int) letter.toUpperCase().charAt(0);
         int intUnicode = (int) name.toUpperCase().charAt(0);
-        String check = "f";
 
         if (intLetter <= intUnicode) {
             return name;

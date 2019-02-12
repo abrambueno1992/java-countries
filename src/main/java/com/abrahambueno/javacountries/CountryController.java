@@ -31,6 +31,13 @@ public class CountryController {
 
     @RequestMapping("/size")
     public ArrayList<Country> getCountryBySizeChar(@RequestParam(value = "letters") String letters) {
-        return JavacountriesApplication.ourCountryList.countryList;
+        ArrayList<Country> newList = new ArrayList<Country>();
+        for (Country e: JavacountriesApplication.ourCountryList.countryList) {
+            if (letters.length() <= e.getName().length()) {
+                newList.add(e);
+            }
+        }
+        newList.sort((e1, e2) -> e1.getName().compareToIgnoreCase(e2.getName()));
+        return newList;
     }
 }
